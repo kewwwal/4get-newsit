@@ -1,11 +1,16 @@
 // ==UserScript==
 // @name         4get-newsit
 // @namespace    https://github.com/kewwwal/
-// @version      1.0
+// @version      1.1
 // @description  newsit integration for lolcat's 4get search engine
 // @author       kewwwal
 // @match        *://*/*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=4get.ca
+// @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAD1BMVEWrqKNNYGcMDAwSBQAAAAC5zpuWAAAAfUlEQVQ4jc2SSRKAIAwEmcD/36xIFklY9GCVc6SbCVCk9JMQrWnN3mAFQBTyFeFROGEpORNzNbR1LJBN5hEkHI23RROsoBqVSy233TjaJhMkTtCrBY5u7oDrKbsHBpyRaM7jY8JnK3hlKwycpRCgd5bCDD4Shh/ynZB2/Jsc3rUCCRq/qkkAAAAASUVORK5CYII=
+// @homepageURL  https://github.com/kewwwal/4get-newsit
+// @supportURL   https://github.com/kewwwal/4get-newsit/issues
+// @updateURL    https://raw.githubusercontent.com/kewwwal/4get-newsit/main/main.user.js
+// @downloadURL  https://raw.githubusercontent.com/kewwwal/4get-newsit/main/main.user.js
+// @license      MIT
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
 // @grant        GM_setValue
@@ -13,6 +18,11 @@
 // @grant        GM_registerMenuCommand
 // @grant        GM_deleteValue
 // @grant        GM_listValues
+// @connect      reddit.com
+// @connect      old.reddit.com
+// @connect      www.reddit.com
+// @connect      hn.algolia.com
+// @connect      algolia.com
 // @require      https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.8/purify.min.js
 // ==/UserScript==
 
@@ -25,8 +35,8 @@
         cachePrefix: { rd: 'rd_', hn: 'hn_' },
         debounce: 500,
         icons: {
-            rd: 'https://www.google.com/s2/favicons?sz=32&domain=reddit.com',
-            hn: 'https://www.google.com/s2/favicons?sz=32&domain=news.ycombinator.com'
+            rd: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAilBMVEVHcEz/RQD/RgD/RQD/RQD/RQD/RAD/RQD/RQD/RQD/RgD/RQD+////PwD/OADr9Pbi6+73/f3K2+P7flzT4ugAAAL5ZTr2+Pj0uKzGy83+ThP70cb7kXjc19frnY/+6+XajYHxck/Ro6M8LSr/WAAFFxz/bkioNhLTQCNkZWaCUELvGwDeWT6IfHsSwPnoAAAAC3RSTlMAyU9RouIMIvWPUzQQe5EAAAGkSURBVDiNhVPpeqwgDNWpjk5jWARxt9rZu7z/6zVAnWpv/e75g3JOCEkOQfDA/jkKU4A0PDztg3+RREQ+ECW/+QP8wmEdHq9IZAwhXhySpCuedW1rENJkg8cuIzTwo1ifD9e7IMHAAOK/7nc7Hz9FJuWA802Tdfz5ikoL0aP7s0miVf7rEQHNMDZeEFH/PIGuuEa9vamGUZWIXrEPnmxdjVLALtVL5vBSXRgoEhK1sxlYV9Jumy3QkrbsmL1mCKiyDSiEMEiBtVuClkEawEPw+joT8xcJwAoqXsosG9/N4PeH92mkpeSVFaRUtuZSljcwxgsMmFuZSa7txOiSgJMopfw4nS5eMJ1OHxQhJmpF6BrpkvRKzX1Qqpc+AZX57AbMOUmk6GtCL6SUtNGha5RvdS8EbR0LhyN9ctF/t9rloAHSBHldFOdzUdRcCK0V+mH5cbMxz3Mt6ntR3Gti83xk87i9YdhU504jtF1rxRbWdpbDZui1I3PdD94O8dq0DExXEToDLnxh69mVSJ6xZoENfo34P/zP09v9RUfb784+/93i+X8BtrYxyahtbccAAAAASUVORK5CYII=',
+            hn: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAPFBMVEX/ZgD/////+fX/vZL/7OD/bAv/9O3/jUL/v5X/p23/nFr/2L7/cBL/6dr/iDn/sHz/mFT/1Lf/3sn/oGHk31anAAAAQklEQVQYlWNgoDJgZWMBkuyMHEhinIxcDAzcTDzI6lh4GfgY+VG0CjAKCLKxohonxMIojGYDHyMvhq1MzNQTogIAANoJARPbxOAzAAAAAElFTkSuQmCC'
         },
         maxActive: 3,
         requestGap: 200,
