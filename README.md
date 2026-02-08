@@ -18,7 +18,7 @@ works on any 4get instance. it detects 4get by looking for specific page element
 links go to old.reddit.com by default. if you prefer new reddit, click the tampermonkey (or similar) icon → 4get-newsit → click to toggle.
 
 ### credits
-this is basically [benwinding/newsit](https://github.com/benwinding/newsit) but rewritten from scratch as a userscript for [lolcat/4get](https://git.4get.ca/lolcat/4get).
+this is basically [benwinding/newsit](https://github.com/benwinding/newsit) but rewritten from scratch as a userscript for [lolcat/4get](https://git.lolcat.ca/lolcat/4get).
 
 ### note
 i made this for myself, but if you have any trouble feel free to ask. happy to help.
